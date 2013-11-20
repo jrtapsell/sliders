@@ -31,68 +31,10 @@
 	<meta name="generator" content="Geany 1.22" />
 	<script type="text/javascript" src="cordova-2.7.0.js"></script>
 	<script type="text/javascript" src="phonegap.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script src="jquery.min.js"></script>
 </head>
-<style>
-	body, html{
-		width:98%;
-		height:99%;
-		}
-	body{
-		background-image:url(bg.jpg);
-		background-size: 150%;
-		}
-	.board{
-		width:80%;
-		height:80%;
-		position:relative;
-		top:10%;
-		left:10%;
-		}
-	.square{
-		width:33%;
-		height:33%;
-		position:absolute;
-		display:inline-block;
-		border:1px solid black;
-		background-color:grey;
-		-webkit-tap-highlight-color: rgba(0,0,0,0);
-		-webkit-tap-highlight-color: transparent;
-		background-size: 100% 100%;
-		border-radius:8px;
-		}
-	.reset{
-		width:100%;
-		height:5%;
-		position:absolute;
-		bottom:0;
-		}
-	#move1{
-		background-image:url(1.png);
-		}
-	#move2{
-		background-image:url(2.png);
-		}
-	#move3{
-		background-image:url(3.png);
-		}
-	#move4{
-		background-image:url(4.png);
-		}
-	#move5{
-		background-image:url(5.png);
-		}
-	#move6{
-		background-image:url(6.png);
-		}
-	#move7{
-		background-image:url(7.png);
-		}
-	#move8{
-		background-image:url(8.png);
-		}
-</style>
+
 
 <body>
 	<div class="board">
@@ -117,89 +59,5 @@
 	</div>
 		
 </body>
-<script>
-	function reset()
-	{
-	
-navigator.app.exitApp();
-	}
-	var locations = [[1,2,3],[4,5,9],[7,8,6]];
-	var stop = false;
-	function kingjulian(index)
-	{
-		if(!stop){
-var blank;	
-for( var i = 0, len = 3; i < len; i++ ) {
-	for( var j = 0, len = 3; j < len; j++ ) {
-    if( locations[i][j] === 9 ) {
-        bx = i + 1;
-        by = j + 1;
-        break;
-    }
-}	
-}
-var clicked;	
-for( var i = 0, len = 3; i < len; i++ ) {
-	for( var j = 0, len = 3; j < len; j++ ) {
-    if( locations[i][j] === index ) {
-        cx = i + 1;
-        cy = j + 1;
-        break;
-    }
-}	
-}
-console.log("bx " + bx);
-console.log("by " + by);
-console.log("cx " + cx);
-console.log("cy " + cy);
-if(by == cy + 1 && bx == cx){
-	$( "#move" + index ).animate({
-	left: "+=33%",
-});
-locations[bx - 1][by - 1] = index;
-locations[cx - 1][cy - 1] = 9;
-}
-if(by == cy - 1 && bx == cx){
-	$( "#move" + index ).animate({
-	left: "-=33%",
-});
-locations[bx - 1][by - 1] = index;
-locations[cx - 1][cy - 1] = 9;
-}
-if(by == cy && bx == cx + 1){
-	$( "#move" + index ).animate({
-	top: "+=33%",
-});
-locations[bx - 1][by - 1] = index;
-locations[cx - 1][cy - 1] = 9;
-}
-if(by == cy && bx == cx - 1){
-	$( "#move" + index ).animate({
-	top: "-=33%",
-});
-locations[bx - 1][by - 1] = index;
-locations[cx - 1][cy - 1] = 9;
-}
-if (String(locations) === "1,2,3,4,5,6,7,8,9"){
-	setTimeout(function(){alert("You Win")}, 1000);
-	stop = true;
-	
-}else{
-	console.log(String(locations));
-}
-}
-}
-
-for( var i = 0, len = 3; i < len; i++ ) {
-for( var j = 0, len = 3; j < len; j++ ) {
-	var target = locations[i][j];
-	if(target !== 9){
-	$( "#move" + target ).animate({
-	top: "+=" + i * 33 + "%",
-	left: "+=" + j * 33 + "%",
-});
-}
-}
-}
-</script>
+<script src="js/index.js"></script>
 </html>
