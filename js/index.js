@@ -7,7 +7,7 @@ function reset()
 navigator.app.exitApp();
 }
 
-function kingjulian(index)
+function move(index)
 {
 if(!stop){
 var blank;	
@@ -30,10 +30,6 @@ for( var i = 0, len = rows; i < len; i++ ) {
     }
 }	
 }
-console.log("bx " + bx);
-console.log("by " + by);
-console.log("cx " + cx);
-console.log("cy " + cy);
 if(by == cy + 1 && bx == cx){
 	$( "#move" + index ).animate({
 	left: "+=" + String(100 / rows) +"%",
@@ -66,12 +62,10 @@ if (String(locations) === win){
 	setTimeout(function(){alert("You Win")}, 1000);
 	stop = true;
 	
-}else{
-	console.log(String(locations));
 }
 }
 }
-
+$(".square").css("background-size", (rows * 100) + "% " + (rows * 100) + "%")
 for( var i = 0, len = rows; i < len; i++ ) {
 for( var j = 0, len = rows; j < len; j++ ) {
 	var target = locations[i][j];
@@ -80,6 +74,12 @@ for( var j = 0, len = rows; j < len; j++ ) {
 	top: "+=" + (i *  (100 / rows)) + "%",
 	left: "+=" + (j * (100 / rows)) + "%",
 });
+
+var tx = (target - 1) % rows;
+var ty = Math.floor((target - 1) / rows);
+var multiple = 100 / rows
+
+$("#move" + target).css("background-position", ((tx * multiple) + (multiple / 2) * tx) + "% " + ((ty * multiple) + (multiple / 2 ) * ty)+ "%");
 }
 }
 }

@@ -24,6 +24,7 @@
 		-webkit-tap-highlight-color: transparent;
 		background-size: 100% 100%;
 		border-radius:8px;
+		background-image:url(fg.png);
 		}
 	.reset{
 		width:100%;
@@ -31,27 +32,4 @@
 		position:absolute;
 		bottom:0;
 		}
-	#move1{
-		background-image:url(1.png);
-		}
-	#move2{
-		background-image:url(2.png);
-		}
-	#move3{
-		background-image:url(3.png);
-		}
-	#move4{
-		background-image:url(4.png);
-		}
-	#move5{
-		background-image:url(5.png);
-		}
-	#move6{
-		background-image:url(6.png);
-		}
-	#move7{
-		background-image:url(7.png);
-		}
-	#move8{
-		background-image:url(8.png);
-		}
+
