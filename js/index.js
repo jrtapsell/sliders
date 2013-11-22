@@ -1,12 +1,17 @@
-var rows = 3;
-var locations = [[1,2,3],[4,5,42],[7,8,6]];
+
+
+
+
+var rows = 4;
+var locations = [[1,2,3,4],[5,6,7,8],[9,10,11,42],[13,14,15,12]];
 var win = "1,2,3,4,5,6,7,8,42";
 var stop = false;
 function reset()
 {	
-navigator.app.exitApp();
+location.reload(); 
 }
-
+	
+	
 function move(index)
 {
 if(!stop){
@@ -66,6 +71,8 @@ if (String(locations) === win){
 }
 }
 $(".square").css("background-size", (rows * 100) + "% " + (rows * 100) + "%")
+$(".square").css("width", (100 / rows) +"%")
+$(".square").css("height", (100 / rows) +"%")
 for( var i = 0, len = rows; i < len; i++ ) {
 for( var j = 0, len = rows; j < len; j++ ) {
 	var target = locations[i][j];
@@ -74,12 +81,12 @@ for( var j = 0, len = rows; j < len; j++ ) {
 	top: "+=" + (i *  (100 / rows)) + "%",
 	left: "+=" + (j * (100 / rows)) + "%",
 });
-
+console.log(i + j);
 var tx = (target - 1) % rows;
 var ty = Math.floor((target - 1) / rows);
 var multiple = 100 / rows
 
-$("#move" + target).css("background-position", ((tx * multiple) + (multiple / 2) * tx) + "% " + ((ty * multiple) + (multiple / 2 ) * ty)+ "%");
+$("#move" + target).css("background-position", ((tx * multiple) + 8 * tx) + "% " + ((ty * multiple) + 8 * ty)+ "%");
 }
 }
 }

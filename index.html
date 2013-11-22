@@ -38,22 +38,11 @@
 
 <body>
 	<div class="board">
-		<div class="square" id="move1" onclick="move(1)">
-		</div>
-		<div class="square" id="move2" onclick="move(2)">
-		</div>
-		<div class="square" id="move3" onclick="move(3)">
-		</div>
-		<div class="square" id="move4" onclick="move(4)">
-		</div>
-		<div class="square" id="move5" onclick="move(5)">
-		</div>
-		<div class="square" id="move6" onclick="move(6)">
-		</div>
-		<div class="square" id="move7" onclick="move(7)">
-		</div>
-		<div class="square" id="move8" onclick="move(8)">
-		</div>
+		<script>
+		for( var i = 1, len = 4 * 4; i < len; i++ ) {
+			document.write('<div id="move' + String(i) + '" class="square" onclick="move(' + String(i) + ')"></div>');	
+		}
+		</script>
 		</div>
 	<div class="reset"onclick="reset()">
 	</div>
