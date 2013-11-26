@@ -71,7 +71,9 @@ function last() {
 		$(".next").css("height", "6%");
 	}
 }
-
+function swipeHandler( event ){
+console.log(event.target);
+}
 function move(index) {
 	if (!stop) {
 		var blank;

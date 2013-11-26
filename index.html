@@ -10,24 +10,28 @@
 	<script type="text/javascript" src="phonegap.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile.min.js"></script>
 </head>
 
 
 <body>
 	<div class="board">
 		<script>
+			function handleEnd(){
+					alert("Hello");
+				}
 			for (var i = 1, len = 4 * 4; i < len; i++) {
-				document.write('<div id="move' + String(i) + '" class="square" onclick="move(' + String(i) + ')"></div>');
-			}
+				document.write('<div id="move' + String(i) + '" class="square" ontouchstart="move(' + String(i) + ')"></div>');
+				}
 		</script>
 	</div>
-	<div class="last" onclick="last()">
+	<div class="last" ontouchstart="last()">
 		Back
 	</div>
-	<div class="reset" onclick="reset()">
+	<div class="reset" ontouchstart="reset()">
 		Reset
 	</div>
-	<div class="next" onclick="next()">
+	<div class="next" ontouchstart="next()">
 		Next
 	</div>
 	<div class="WIN">
@@ -39,5 +43,4 @@
 
 </body>
 <script src="js/index.js"></script>
-
 </html>
