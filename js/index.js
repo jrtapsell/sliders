@@ -1,20 +1,25 @@
 var chosen;
 var output;
 var puzzle = 0;
-var puzzles = 3;
+var puzzles = 9;
 var locations;
 var raw = "[\
 [[1,2,3,4],[5,6,7,8],[9,10,11,42],[13,14,15,12]],\
 [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,42,15]],\
 [[5,1,2,3],[9,6,7,4],[13,10,11,8],[14,15,12,42]],\
-[[5,1,7,3],[9,2,11,4],[13,6,15,8],[42,10,14,12]]\
+[[5,1,7,3],[9,2,11,4],[13,6,15,8],[42,10,14,12]],\
+[[1,6,2,4],[5,10,3,7],[42,14,11,8],[9,13,15,12]],\
+[[1,6,2,4],[9,5,3,7],[10,14,12,8],[13,42,11,15]],\
+[[1,3,8,7],[6,2,10,4],[5,14,42,15],[9,13,12,11]],\
+[[11,1,4,7],[42,2,3,8],[5,9,14,15],[13,6,10,12]],\
+[[2,3,4,42],[1,5,6,7],[10,11,12,8],[9,13,14,15]],\
+[[6,5,2,7],[1,10,4,3],[13,15,12,8],[14,9,11,42]]\
 ]";
 locations = $.parseJSON(raw)[puzzle];
 var rows = 4;
 var win = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,42";
 var stop = false;
 $(".WIN").css("display", "none");
-
 function reset() {
 	stop = false;
 	$(".WIN").css("display", "none");
@@ -70,9 +75,6 @@ function last() {
 	} else {
 		$(".next").css("height", "6%");
 	}
-}
-function swipeHandler( event ){
-console.log(event.target);
 }
 function move(index) {
 	if (!stop) {
@@ -136,6 +138,7 @@ function move(index) {
 draw();
 
 function draw() {
+	$(".square").css("background-image", "url('res/img/" + puzzle % 6 + ".jpg')");
 	$(".square").css("background-size", (rows * 100) + "% " + (rows * 100) + "%")
 	$(".square").css("width", (100 / rows) + "%")
 	$(".square").css("height", (100 / rows) + "%")
@@ -157,4 +160,4 @@ function draw() {
 		}
 	}
 }
-$(".last").css("height", "3px");
+$(".last").css("height", "3%");
